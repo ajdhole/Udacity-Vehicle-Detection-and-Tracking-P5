@@ -11,11 +11,11 @@ The goals / steps of this project are the following:
 * Estimate a bounding box for vehicles detected.
 
 [//]: # (Image References)
-[image1]: ./writeup_images/car_not_car.png
-[image2]: ./writeup_images/HOG_example.jpg
-[image3]: ./writeup_images/sliding_windows.jpg
-[image4]: ./writeup_images/sliding_window.jpg
-[image5]: ./writeup_images/bboxes_and_heat.png
+[image1]: ./writeup_images/data_visualization.png
+[image2]: ./writeup_images/Hog_Display.jpg
+[image3]: ./writeup_images/initial_detection.jpg
+[image4]: ./writeup_images/heat_images.jpg
+[image5]: ./writeup_images/heat_map_apply.png
 [image6]: ./writeup_images/labels_map.png
 [image7]: ./writeup_images/output_bboxes.png
 [video1]: ./writeup_images.mp4
@@ -26,7 +26,7 @@ The goals / steps of this project are the following:
 ---
 ### Writeup / README
 
-####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one.  You can submit your writeup as markdown or pdf.  [Here](https://github.com/udacity/CarND-Vehicle-Detection/blob/master/writeup_template.md) is a template writeup for this project you can use as a guide and a starting point.  
+#### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one.  You can submit your writeup as markdown or pdf.  [Here](https://github.com/udacity/CarND-Vehicle-Detection/blob/master/writeup_template.md) is a template writeup for this project you can use as a guide and a starting point.  
 
 You're reading it!
 
