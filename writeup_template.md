@@ -119,5 +119,4 @@ Here's an example result showing the heatmap from a series of frames of video, t
 
 ####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
-
+I tried above Vehicle detection pipeline on harder challange video, It seems it is failing to detect vehicle coming from opposite direction, since we train model with back side images of car only so, to make it more robust vehicle training data to be enhanced like vehicle images from all side, also some false detection occured at tree shadow, further it can be optimised by adapting different classification approach like decision tree or with convolutional neural network aproach. 
