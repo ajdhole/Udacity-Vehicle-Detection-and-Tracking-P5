@@ -11,11 +11,11 @@ The goals / steps of this project are the following:
 * Estimate a bounding box for vehicles detected.
 
 [//]: # (Image References)
-[image1]: ./writeup_images/data_visualization.png
-[image2]: ./writeup_images/Hog_Display.jpg
-[image3]: ./writeup_images/initial_detection.jpg
-[image4]: ./writeup_images/heat_images.jpg
-[image5]: ./writeup_images/heat_map_apply.png
+[image1]: ./writeup_images/data_visualization.png "Data Visualization"
+[image2]: ./writeup_images/Hog_Display.png "Hog Display"
+[image3]: ./writeup_images/initial_detection.png "Window search"
+[image4]: ./writeup_images/heat_images.png "Window search without heatmap"
+[image5]: ./writeup_images/heat_map_apply.png "Window search with heatmap"
 [image6]: ./writeup_images/labels_map.png
 [image7]: ./writeup_images/output_bboxes.png
 [video1]: ./writeup_images.mp4
@@ -42,18 +42,37 @@ I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an 
 
 I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
 
-Here is an example using the `YCrCb` color space and HOG parameters of `orientations=8`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
-
+Here is an example using the `YCrCb` color space and HOG parameters of `orientations=9`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
 
 ![alt text][image2]
 
 #### 2. Explain how you settled on your final choice of HOG parameters.
 
-I tried various combinations of parameters and...
+I experimented with a number of different combinations of color spaces and HOG parameters and trained a  SVM classifier using different combinations of HOG features extracted from the color channels. based on different combination of parameter following paramer]ter gives more accuracy for classifier and stable result. 
+
+`color_space` = 'YCrCb' # Can be RGB, HSV, LUV, HLS, YUV, YCrCb 
+
+`orient` = 9  # HOG orientations
+
+`pix_per_cell` = 8 # HOG pixels per cell
+
+`cell_per_block` = 2 # HOG cells per block
+
+`hog_channel` = 'ALL' # Can be 0, 1, 2, or "ALL" 
+
+`spatial_size` = (32, 32) # Spatial binning dimensions
+
+`hist_bins = 32`    # Number of histogram bins
+
+`spatial_feat` = True # Spatial features on or off
+
+`hist_feat` = True # Histogram features on or off
+
+`hog_feat` = True # HOG features on or off`
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
-I trained a linear SVM using...
+Initially, I trained model with a linear SVM classifier, later to fine tune classifier parameter I used `GridSearchCV` parameter optimization function to select best parameter for classification, best parameter displayed with `clf.best_params_` and it is selected as  `{'kernel': 'rbf', 'C': 10}`.
 
 ###Sliding Window Search
 
@@ -73,7 +92,7 @@ Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spat
 ### Video Implementation
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](./project_video.mp4)(https://youtu.be/O00Lt-0B39M)
 
 
 ####2 . Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
