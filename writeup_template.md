@@ -34,7 +34,7 @@ You're reading it!
 
 #### 1. Explain how (and identify where in your code) you extracted HOG features from the training images.
 
-The code for this step is contained in the first code cell of the IPython notebook (or in lines # through # of the file called `some_file.py`).  
+The code for this step is contained in the 5th code cell of the IPython notebook of the file called `Vehicle-Detection-and-Tracking-P5.ipynb`.  
 
 I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
@@ -52,7 +52,7 @@ I experimented with a number of different combinations of color spaces and HOG p
 
 `color_space` = 'YCrCb' # Can be RGB, HSV, LUV, HLS, YUV, YCrCb 
 
-`orient` = 9  # HOG orientations
+`orient` = 10  # HOG orientations
 
 `pix_per_cell` = 8 # HOG pixels per cell
 
@@ -62,7 +62,7 @@ I experimented with a number of different combinations of color spaces and HOG p
 
 `spatial_size` = (32, 32) # Spatial binning dimensions
 
-`hist_bins = 32`    # Number of histogram bins
+`hist_bins = 64`    # Number of histogram bins
 
 `spatial_feat` = True # Spatial features on or off
 
@@ -72,19 +72,20 @@ I experimented with a number of different combinations of color spaces and HOG p
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
-Initially, I trained model with a linear SVM classifier, later to fine tune classifier parameter I used `GridSearchCV` parameter optimization function to select best parameter for classification, best parameter displayed with `clf.best_params_` and it is selected as  `{'kernel': 'rbf', 'C': 10}`.
+Initially, I trained model with a linear SVM classifier, later to fine tune classifier parameter I used `GridSearchCV` parameter optimization function to select best parameter for classification, best parameter displayed with `clf.best_params_` and it is selected as  `{'kernel': 'rbf', 'C': 10}` and Test Accuracy of SVC yields  99.63%.
+
 
 ###Sliding Window Search
 
 #### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
-I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
+I used `slide_window` function to define sliding window search, Initially search area was complete image later it is restricted to `y_start_stop=[400, 656]`, The result of sliding search windows as shown below:
 
 ![alt text][image3]
 
 #### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
-Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
+The final classifier uses scales and HOG features from all 3 channels of images in `YCrCb` space. The feature vector contains also spatially binned color and histograms of color features, The false positives were filtered out by using a heatmap approach as described below. Here are some typical examples of detections:
 
 ![alt text][image4]
 ---
@@ -105,11 +106,6 @@ Here's an example result showing the heatmap from a series of frames of video, t
 
 ![alt text][image5]
 
-### Here is the output of `scipy.ndimage.measurements.label()` on the integrated heatmap from all six frames:
-![alt text][image6]
-
-### Here the resulting bounding boxes are drawn onto the last frame in the series:
-![alt text][image7]
 
 
 
