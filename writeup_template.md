@@ -99,7 +99,7 @@ The final classifier uses scales and HOG features from all 3 channels of images 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
 Here's a link to my video result.
 
-[![Track 2 Video](https://img.youtube.com/vi/O00Lt-0B39M/0.jpg)](https://youtu.be/O00Lt-0B39M)
+[![Vehicle Detection Video](https://img.youtube.com/vi/O00Lt-0B39M/0.jpg)](https://youtu.be/O00Lt-0B39M)
 
 
 #### 2 . Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
@@ -121,6 +121,20 @@ Here's an example result showing the heatmap from a series of frames of video, t
 
 ###Discussion
 
-####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
+#### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
 I tried above Vehicle detection pipeline on harder challange video, It seems it is failing to detect vehicle coming from opposite direction, since we train model with back side images of car only so, to make it more robust vehicle training data to be enhanced like vehicle images from all side, also some false detection occured at tree shadow, further it can be optimised by adapting different classification approach like decision tree or with convolutional neural network aproach. 
+
+#### 2. As an optional challenge, combine this vehicle detection pipeline with the lane finding implementation from the last project! 
+
+As an additional optional challenge, I have combined Lane finding pipeline from last project P4, and above pipeline , to process on input video, 
+
+Files details are as below:
+Lane finding pipeline in file `Lane_Finding.py`.
+Vehicle tracking Data exploration and training in file `Vehicle_Tracking.py`
+Vehicle Detection image processing pipeline in `Vehicle_Detection_Pipeline.py`
+Combination of both i.e. Lane finding and vehicle detection in file `Vehicle_Lane_tracking_Pipeline.py`
+
+Following video shows output result for combined pipeline.
+[![Combined Detection Video](https://img.youtube.com/vi/-rp5EPGTOsA/0.jpg)](https://youtu.be/-rp5EPGTOsA)
+
