@@ -1,6 +1,8 @@
 # Udacity Self-Driving Car Engineer Nanodegree Program¶
 ## Vehicle Detection Project¶
 
+![alt text][image8]
+
 The goals / steps of this project are the following:
 
 * Perform a Histogram of Oriented Gradients (HOG) feature extraction on a labeled training set of images and train a classifier Linear SVM classifier
@@ -18,6 +20,8 @@ The goals / steps of this project are the following:
 [image5]: ./writeup_images/heat_map_apply.png "Window search with heatmap"
 [image6]: ./writeup_images/labels_map.png
 [image7]: ./writeup_images/output_bboxes.png
+[image8]: ./writeup_images/Comboned_Vehicle_Lane_Tracking.gif "Combined_Image"
+
 [video1]: ./writeup_images.mp4
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
