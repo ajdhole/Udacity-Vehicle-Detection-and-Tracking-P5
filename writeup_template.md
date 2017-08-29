@@ -76,7 +76,7 @@ I experimented with a number of different combinations of color spaces and HOG p
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
-Initially, I trained model with a linear SVM classifier, later to fine tune classifier parameter I used `GridSearchCV` parameter optimization function to select best parameter for classification, best parameter displayed with `clf.best_params_` and it is selected as  `{'kernel': 'rbf', 'C': 10}` and Test Accuracy of SVC yields  99.63%.
+Initially, I trained SVM classifier with a `GridSearchCV` to fine tune classifier parameter, best parameter displayed with `clf.best_params_` and it is selected as  `{'kernel': 'rbf', 'C': 10}` and Test Accuracy of SVC yields  99.63%. but it was very time consuming, so later for main file I selected linear SVM, and the accuracy yoelds to `Test Accuracy of SVC =  98.99%`
 
 
 ###Sliding Window Search
