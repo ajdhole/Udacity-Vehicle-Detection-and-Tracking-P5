@@ -14,7 +14,8 @@ You can submit your writeup in markdown or use another method and submit a pdf i
 
 The Project
 ---
-
+[image8]: ./writeup_images/Comboned_Vehicle_Lane_Tracking.gif "Combined_Image"
+![alt txt][image8]
 The goals / steps of this project are the following:
 
 * Perform a Histogram of Oriented Gradients (HOG) feature extraction on a labeled training set of images and train a classifier Linear SVM classifier
